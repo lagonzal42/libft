@@ -10,21 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<string.h>
+#include<stdio.h>
+
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t m;
+	int	a;
+	int	b;
 
 	m = 0;
-	while (m < n - 1 && s1[m] != '\0' && s2[m] != '\0')
+	if (((char *)s1)[m] == ((char *)s2)[m] && ((char *)s1)[m] == '\0')
+		return(-1);
+	while (m < n - 1 && ((char *)s1)[m] && ((char *)s2)[m])
 	{	
-		if ((unsigned char *)s1[m] != (unsigned char *)s2[m])
-		   return ((int) s1[m] - ((int) s2[m]);
+		if (((unsigned char *)s1)[m] != ((unsigned char *)s2)[m])
+		{
+			a = ((int *)s1)[m];
+			b = ((int *)s2)[m];
+			if (a > b)
+				return(1);
+			if (a < b)
+				return(-1);
+		}
 		m++;
 	}
-	if (s1[m] == '\0' && s2[m] != '\0')
-		
-	else if (s1[m] != '\0' && s2[m] == '\0')
+	return(0);
+}
 
-	else
-
+int	main(void)
+{
+	const char	s1[] = "";
+	const char	s2[] = "";
+	printf("%s\n", s1);
+	printf("%s\n", s2);
+	printf("%d\n", memcmp(s1, s2, 7));
+	printf("%d\n", ft_memcmp(s1, s2, 7));
+	return (0);
 }

@@ -11,27 +11,28 @@
 /* ************************************************************************** */
 
 #include"libft.h"
-
+#include <stdio.h>
+#include<string.h>
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	void	*swap;
-	int		n;
+	size_t	n;
+	size_t	m;
 
-	n = 0;
-	swap = malloc (sizeof *src * len);
-	while (src[n] != '\0')
+	m = 0;
+
+	if (*dst > *src)
 	{
-		swap[n] = src[n];
-		n++;
+		n = ft_strlen((const char *) dst)
+		while (src[m] != '\0' && len - 1 > m)
+		{
+			dst[n] = src[m];
+			n--;
+			m--;
+		}
 	}
-	swap [n] = '\0';
-	n = 0;
-	while (swap[n] != '\0')
+	else
 	{
-		dst[n] = swap[n];
-		n++;
+		while (src[m] != '\0' && len - 1 > m)
+		       dst[m]	
 	}
-	dst[n] = '\0';
-	free(swap);
-	return (dst);
 }
