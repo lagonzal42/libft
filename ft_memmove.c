@@ -6,33 +6,42 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:53:52 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/08/30 18:18:41 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:03:48 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 #include <stdio.h>
 #include<string.h>
+
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	n;
-	size_t	m;
+	size_t			m;
+	unsigned char	*dest;
+	unsigned char	*sorc;
+	size_t			n;
 
 	m = 0;
-
-	if (*dst > *src)
-	{
-		n = ft_strlen((const char *) dst)
-		while (src[m] != '\0' && len - 1 > m)
+	n = 0;
+	dest = dst;
+	sorc = (void *)src;
+	if (*dest > *sorc)
+	{	
+		m = ft_strlen(src);
+		while (len - m > 0 )
 		{
-			dst[n] = src[m];
-			n--;
+			dest[m] = sorc[m];
+			n++;
 			m--;
 		}
 	}
 	else
 	{
-		while (src[m] != '\0' && len - 1 > m)
-		       dst[m]	
+		while (sorc[m] != '\0' && len > m)
+		{
+			dest[m] = sorc[m];
+			m++;
+		}
 	}
+	return (dst);
 }

@@ -6,21 +6,31 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:45:14 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/02 12:48:41 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:31:29 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include "stdio.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-	int	n;
+	size_t	n;
 
-	n = 0;
-	while (s[n] != '\0')
-		n++;
-	while (s[n] != c && n <= 0)
+	n = ft_strlen(s);
+	while (s[n] != c && n >= 0)
 		n--;
-	if (n == 0)
+	if (n < 0)
 		return (NULL);
 	else
-		return (&s[n]);
+		return ((char *)s + n);
 }
+
+/*int	main(void)
+{
+	const char	s[] = "https://www.google.es";
+	int	c = '.';
+	printf("%s\n", s);
+	printf("%s\n", ft_strrchr(s, c));
+	return (0);
+}*/

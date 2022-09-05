@@ -6,18 +6,21 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:38:29 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/02 19:25:57 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:40:49 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-/*#include<string.h>
-#include<stdio.h>*/
+#include<string.h>
+#include<stdio.h>
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t m;
+	size_t	m;
 
 	m = 0;
+	if (src == NULL && dst == NULL)
+		return (dst);
 	while (m < n)
 	{
 		((unsigned char *)dst)[m] = ((unsigned char *)src)[m];
@@ -25,7 +28,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-	
+
 /*{
 	size_t	m;
 
@@ -42,10 +45,17 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 /*int	main(void)
 {
 	char src[] = "";
+	char src2[] = "";
 	char dst[] = "";
+	char dst2[] = "";
 	printf("%s\n", src);
 	printf("%s\n", dst);
-	memcpy(dst, src, 2);
+	memcpy(NULL, NULL, 2);
+	printf("%s\n", src);
+	printf("%s\n", dst);
+	printf("%s\n", src2);
+	printf("%s\n", dst2);
+	ft_memcpy(NULL, NULL, 2);
 	printf("%s\n", src);
 	printf("%s\n", dst);
 	return (0);

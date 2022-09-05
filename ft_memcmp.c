@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:02:47 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/02 17:01:46 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/04 20:01:25 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
+	size_t	m;
+
+	m = 0;
+	while (n > m)
+	{	
+		if (((unsigned char *)s1)[m] != ((unsigned char *)s2)[m])
+			return (((unsigned char *)s1)[m] - ((unsigned char *)s2)[m]);
+		m++;
+	}
+	return (0);
+}
+	/*{
 	size_t m;
 	int	a;
 	int	b;
@@ -36,9 +48,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		m++;
 	}
 	return(0);
-}
+}*/
 
-int	main(void)
+/*int	main(void)
 {
 	const char	s1[] = "";
 	const char	s2[] = "";
@@ -47,4 +59,4 @@ int	main(void)
 	printf("%d\n", memcmp(s1, s2, 7));
 	printf("%d\n", ft_memcmp(s1, s2, 7));
 	return (0);
-}
+}*/

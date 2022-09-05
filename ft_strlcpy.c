@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:03:49 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/02 19:35:13 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/04 20:09:27 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	n = 0;
 	if (dstsize > 0)
 	{
-	while (n < dstsize - 1 && src[n] != '\0')
-	{
-		dst[n] = src[n];
-		n++;
-	}
-	dst[n] = '\0';
-	while (src[n] != '\0')
-		n++;
-	return (n);
+		while (n < dstsize - 1 && src[n] != '\0')
+		{
+			dst[n] = src[n];
+			n++;
+		}
+		dst[n] = '\0';
+		while (src[n] != '\0')
+			n++;
+		return (n);
 	}
 	else
 		return (n = ft_strlen(src));
