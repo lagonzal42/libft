@@ -28,6 +28,6 @@ int	main(void)
 	char *str;
 	str = ft_substr(d, 5, 6);
 	printf("%s\n", str);
-	
+	free(str);
 	return (0);
 }
