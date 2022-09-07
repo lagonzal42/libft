@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:35:32 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/05 15:33:49 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:12:17 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 }*/
 
 {
-	int		n;
+	int	n;
 	size_t	m;
 	size_t	len;
 
 	len = ft_strlen(dst);
 	n = 0;
 	m = 0;
-	while (dst[n] != '\0' && n < (int) dstsize - 1)
+	while (dst[n] != '\0' && n < (int)dstsize - 1)
 		n++;
-	while (src[m] != '\0' && ((int) dstsize - n - 1) > 0)
+	while (src[m] != '\0' && ((int)dstsize - n - 1) > 0)
 	{
 		dst[n++] = src[m++];
 	}
@@ -49,14 +49,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		n = ft_strlen(src) + dstsize;
 	if (n != 0 && n > (int)len)
 		dst[n] = '\0';
-	if (dstsize < len)
-		return (ft_strlen(src) + dstsize);
-	else if (dstsize < len + ft_strlen(src))
-		return (ft_strlen(src) + len);
-	else
-		return ((size_t) n);
+	if (dstsize > len)
+		return(ft_strlen(dst));
+	else 
+		return(n);
 }
+/*{
+	size_t	n;
+	size_t	odstl;
+	
+	odstl = ft_strlen(dst);
+	while (dst[n] != '\0' && n < dstsize - 1)
+		n++;
 
+}
+*/
 /*int	main(void)
 {
 	const char src1[] = "lorem ipsum dolor sit amet";

@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:45:14 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/05 12:31:29 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/07 13:27:30 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	n;
 
 	n = ft_strlen(s);
-	while (s[n] != c && n >= 0)
+	while (s[n] != (char)c && n > 0)
 		n--;
-	if (n < 0)
+	if (n == 0 && s[n] != (char)c)
 		return (NULL);
 	else
 		return ((char *)s + n);

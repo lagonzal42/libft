@@ -20,10 +20,11 @@ char	*ft_strjoin(const char *s1, char const *s2)
 	m = 0;
 	while(s2[m] != '\0')
 		s3[n++] = s2[m++];
+	s3[n] = '\0';
 	return(s3);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	const char	s1[] = "Hola ";
 	const char	s2[] = "mundo!";
@@ -33,4 +34,4 @@ int	main(void)
 	printf("s3 = %s\n",s3);
 	free(s3);
 	return (0);
-}
+}*/
