@@ -24,7 +24,8 @@ OBJS = ft_atoi.o \
 	   ft_substr.o \
 	   ft_tolower.o \
 	   ft_toupper.o \
-	   ft_memmove.o
+	   ft_memmove.o \
+	   ft_split.o
 CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 $(NAME):$(OBJS)
