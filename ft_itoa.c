@@ -9,6 +9,9 @@
 /*   Updated: 2022/09/08 21:17:11 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 size_t	ft_numlen(int n)
 {
@@ -22,16 +25,23 @@ size_t	ft_numlen(int n)
 	}
 	return (i);
 }
-char	*ft_nb2str(char *s,int n, int sign, size_t i)
+char	*ft_nb2str(char **s,int n, size_t *i)
 {
-	while (i > 0)
+	while (*i > 1)
 	{
-		if (nbr > 10)
-			ft
-		
-		i--;
-	}
-
+		if (n >= 10)
+		{	
+			*i = *i - 1;
+			s[0][*i] = (n % 10) + '0';
+			*s = ft_nb2str(s, n / 10, i);
+		}
+		else 
+		{	
+			*i = *i - 1;
+			s[0][*i] = n + '0';	
+		}
+}
+	return(*s);
 }
 char	*ft_itoa(int n)
 {
@@ -49,6 +59,22 @@ char	*ft_itoa(int n)
 	if (sign < 0)
 		i++;
 	s = malloc ((i + 1) * sizeof(char));
-	s = ft_nb2str(s ,n, sign, i);
-	
+	if (!s)
+		return(NULL);
+	if (sign < 0)
+		s[0] = '-';
+	s[i] = '\0';	
+	s = ft_nb2str(&s ,n, &i);
+	return (s);
+}
+
+int	main(void)
+{
+	int	n;
+	char	*s;
+	n = -453;
+	s = ft_itoa(n);
+	printf("%s\n", s);
+	free(s);
+	return (0);
 }
