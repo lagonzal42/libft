@@ -64,7 +64,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 }
 */
-/*int	main(void)
+int	main(void)
 {
 	const char src1[] = "lorem ipsum dolor sit amet";
 	const char src2[] = "lorem ipsum dolor sit amet";
@@ -81,4 +81,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	printf("%d\n", num2);
 	printf("%s\n", dest2);
 	return (0);
-}*/
+}

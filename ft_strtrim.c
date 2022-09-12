@@ -14,42 +14,46 @@
 #include<stdlib.h>
 #include"libft.h"
 
-/*char	*ft_strstr(char *s1, const char *set)
+int	ft_chrstr(char c, const char *set)
 {
-:wq	size_t	n;
-	size_t	m;
+	size_t	n;
 
 	n = 0;
-	while (str[n] != '\0' && set[m] != '\0')
+	while(set[n] != '\0')
 	{
-		m = 0;
-		n++;
+		if (set[i] == c)
+			return(1);
+		i++;
 	}
+	return(0);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
+	char	*ptr;
 	size_t	n;
 	size_t	len;
-	char	*ptr;
+	size_t	m;
 
-	ptr = malloc ((len + 1) * sizeof(char));
-	len = 0;
 	n = 0;
-	while (s1[n] != '\0')
-	{
-		if (ft_chrinstr(s1[n], set) == 1)
-			ptr[len++] = s1[n];
-		n++;
-	}
-	ptr[len] = '\0';
+	m = 0;
+	while (s1[n] != '\0' && ft_chrstr(s1[n], set) == 1)
+		start++;
+	len = ft_strlen(s1);
+	while (n < len && ft_chrstr(s1[len - 1], set))
+		len--;
+	ptr = malloc((len - n + 1) * sizeof(char));
+	if (!str)
+		return(NULL);
+	while (n < len)
+		ptr[m++] = s1[n++];
 	return(ptr);
-}*/
+}
 
 /*int	main(void)
 {
-	char	s1[] = "AAAACCAABBAAAEE";
-	char	set[] ="CBE";
+	char	s1[] = "ABCDEFGFEIDCBA";
+	char	set[] ="CDI";
 	char	*s2;
 	printf("teniendo el string %s queremos borrar los caracteres %s\n", s1, set);
 	s2 = ft_strtrim(s1, set);
