@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:00:16 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/07 13:16:58 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/13 16:14:51 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_chrstr(char c, const char *set)
 	n = 0;
 	while(set[n] != '\0')
 	{
-		if (set[i] == c)
+		if (set[n] == c)
 			return(1);
-		i++;
+		n++;
 	}
 	return(0);
 }
@@ -38,15 +38,16 @@ char	*ft_strtrim(const char *s1, const char *set)
 	n = 0;
 	m = 0;
 	while (s1[n] != '\0' && ft_chrstr(s1[n], set) == 1)
-		start++;
+		n++;
 	len = ft_strlen(s1);
 	while (n < len && ft_chrstr(s1[len - 1], set))
 		len--;
 	ptr = malloc((len - n + 1) * sizeof(char));
-	if (!str)
+	if (!ptr)
 		return(NULL);
 	while (n < len)
 		ptr[m++] = s1[n++];
+	ptr[m] ='\0';
 	return(ptr);
 }
 

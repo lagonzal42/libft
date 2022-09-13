@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 18:17:00 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/08 21:17:11 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/13 20:08:19 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,7 +18,7 @@ size_t	ft_numlen(int n)
 	size_t	i;
 	
 	i = 1;
-	while (n > 10)
+	while (n >= 10)
 	{
 		n = n / 10;
 		i++;
@@ -27,7 +27,7 @@ size_t	ft_numlen(int n)
 }
 char	*ft_nb2str(char **s,int n, size_t *i)
 {
-	while (*i > 1)
+	while (*i >= 1 && s[0][*i] != '+' && s[0][*i] != '-')
 	{
 		if (n >= 10)
 		{	
@@ -39,9 +39,19 @@ char	*ft_nb2str(char **s,int n, size_t *i)
 		{	
 			*i = *i - 1;
 			s[0][*i] = n + '0';	
+			*i = 0; 
+			return (*s);
 		}
-}
+	}
 	return(*s);
+}
+
+char	*ft_minv(char *s)
+{
+	char	*ptr;
+
+	ptr = ft_strdup(s);
+	return (ptr);
 }
 char	*ft_itoa(int n)
 {
@@ -49,6 +59,11 @@ char	*ft_itoa(int n)
 	size_t	i;
 	int		sign;
 
+	if (n == (-2147483647 - 1))
+	{
+		s = ft_minv("-2147483648");
+		return (s);
+	}	
 	sign = 1;
 	if (n < 0)
 	{		
@@ -68,13 +83,13 @@ char	*ft_itoa(int n)
 	return (s);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	n;
 	char	*s;
-	n = -453;
+	n = 0;
 	s = ft_itoa(n);
 	printf("%s\n", s);
 	free(s);
 	return (0);
-}
+}*/

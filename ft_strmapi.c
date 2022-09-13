@@ -14,14 +14,14 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	m = 0;
 	while (s[m] != '\0')
 	{
-		ptr[m] = s[m]
+		ptr[m] = s[m];
 		m++;
 	}
 	ptr[m] = '\0';
 	m = 0;
-	while (str[m] != '\0')
+	while (ptr[m] != '\0')
 	{
-		str[m] = (*f)(m, str[m]);
+		ptr[m] = (*f)(m, ptr[m]);
 		m++;
 	}
 	return(ptr);

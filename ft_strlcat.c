@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 16:35:32 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/07 14:12:17 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:49:10 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 }
 */
-int	main(void)
+/*int	main(void)
 {
 	const char src1[] = "lorem ipsum dolor sit amet";
 	const char src2[] = "lorem ipsum dolor sit amet";
@@ -81,4 +81,4 @@ int	main(void)
 	printf("%d\n", num2);
 	printf("%s\n", dest2);
 	return (0);
-}
+}*/

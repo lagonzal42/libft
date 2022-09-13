@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 15:26:52 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/08 19:12:06 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/13 18:26:57 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ ptr = ft_allocation(w, ptr, s, c);
 
 /*int main(void)
 {
-    char    s[] = "lorem    ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse\0";
+    char    s[] = "lorem    ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
     char        c = ' ';
     char        **ptr;
     int            m;

@@ -1,25 +1,12 @@
 #include "libft.h"
+#include <unistd.h>
 #include <stdlib.h>
 
-void	ft_putnbr(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	c;
+	char	*s;
 
-	c = 0;
-	if (n < 0)
-	{
-		n = n * -1;
-		write(fd, "-", 1);
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10, fd);
-		c =(n % 10) + '0';
-		write(fd, &c, 1);
-	}
-	else
-	{
-		c = n + '0';
-		write(fd, &c, 1);
-	}
+	s = ft_itoa(n);
+	ft_putstr_fd(s, fd);
+	free(s);
 }
