@@ -6,9 +6,10 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 18:17:00 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/13 20:08:19 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:39:29 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,16 +17,20 @@
 size_t	ft_numlen(int n)
 {
 	size_t	i;
-	
+
 	i = 1;
-	while (n >= 10)
+	if (n < 0)
+		i++;
+	while (n >= 10 || n <= -10)
 	{
 		n = n / 10;
 		i++;
 	}
+	
 	return (i);
 }
-char	*ft_nb2str(char **s,int n, size_t *i)
+
+char	*ft_nb2str(char **s, int n, size_t *i)
 {
 	while (*i >= 1 && s[0][*i] != '+' && s[0][*i] != '-')
 	{
@@ -35,15 +40,15 @@ char	*ft_nb2str(char **s,int n, size_t *i)
 			s[0][*i] = (n % 10) + '0';
 			*s = ft_nb2str(s, n / 10, i);
 		}
-		else 
+		else
 		{	
 			*i = *i - 1;
-			s[0][*i] = n + '0';	
-			*i = 0; 
+			s[0][*i] = n + '0';
+			*i = 0;
 			return (*s);
 		}
 	}
-	return(*s);
+	return (*s);
 }
 
 char	*ft_minv(char *s)
@@ -53,6 +58,7 @@ char	*ft_minv(char *s)
 	ptr = ft_strdup(s);
 	return (ptr);
 }
+
 char	*ft_itoa(int n)
 {
 	char	*s;
@@ -65,21 +71,19 @@ char	*ft_itoa(int n)
 		return (s);
 	}	
 	sign = 1;
+	i = ft_numlen(n);
 	if (n < 0)
 	{		
 		n = n * -1;
 		sign = -1;
 	}
-	i = ft_numlen(n);
-	if (sign < 0)
-		i++;
 	s = malloc ((i + 1) * sizeof(char));
 	if (!s)
-		return(NULL);
+		return (NULL);
 	if (sign < 0)
 		s[0] = '-';
-	s[i] = '\0';	
-	s = ft_nb2str(&s ,n, &i);
+	s[i] = '\0';
+	s = ft_nb2str(&s, n, &i);
 	return (s);
 }
 

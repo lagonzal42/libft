@@ -1,39 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 18:45:37 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/14 19:17:04 by lagonzal         ###   ########.fr       */
+/*   Created: 2022/09/14 19:41:50 by lagonzal          #+#    #+#             */
+/*   Updated: 2022/09/14 19:56:38 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
-#include <stdlib.h>
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_striteri(char *s, void(*f)(unsigned int, char *))
 {
-	char	c;
+	size_t	m;
 
-	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (n < 0)
+	if (s && f)
 	{	
-		write(fd, "-", 1);
-		n = n * -1;
+		m = 0;
+		while (s[m] != '\0')
+		{
+			(*f)(m, s + m);
+			m++;
+		}
 	}
-	if (n >= 10)
+}	
+
+/*{
+	char	*ptr;
+	size_t	m;
+	size_t	n;
+
+	n = ft_strlen(s);
+	ptr = malloc((n + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	m = 0;
+	while (s[m] != '\0')
 	{
-		ft_putnbr_fd(n / 10, fd);
-		c = (n % 10) + '0';
-		write(fd, &c, 1);
+		ptr[m] = s[m];
+		m++;
 	}
-	else if (n < 10 && n >= 0) 
+	ptr[m] = '\0';
+	m = 0;
+	while (ptr[m] != '\0')
 	{
-		c = n + '0';
-		write(fd, &c, 1);
+		ptr[m] = (*f)(m, ptr[m]);
+		m++;
 	}
-}
+	return (ptr);
+}*/

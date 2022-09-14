@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:00:16 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/13 16:14:51 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:29:57 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	ft_chrstr(char c, const char *set)
 	size_t	n;
 
 	n = 0;
-	while(set[n] != '\0')
+	while (set[n] != '\0')
 	{
 		if (set[n] == c)
-			return(1);
+			return (1);
 		n++;
 	}
-	return(0);
+	return (0);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
@@ -44,11 +44,11 @@ char	*ft_strtrim(const char *s1, const char *set)
 		len--;
 	ptr = malloc((len - n + 1) * sizeof(char));
 	if (!ptr)
-		return(NULL);
+		return (NULL);
 	while (n < len)
 		ptr[m++] = s1[n++];
-	ptr[m] ='\0';
-	return(ptr);
+	ptr[m] = '\0';
+	return (ptr);
 }
 
 /*int	main(void)

@@ -6,20 +6,13 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 20:48:02 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/05 16:41:32 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:42:46 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
-
-
-
-
-
-
-
 
 char	*ft_strdup(const char *s)
 {
