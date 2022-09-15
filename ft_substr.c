@@ -1,28 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/15 15:20:50 by lagonzal          #+#    #+#             */
+/*   Updated: 2022/09/15 16:38:35 by lagonzal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
+
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*substr;
+	size_t	n;
 
-	substr = malloc (len + 1 * sizeof(char));
+	n = 0;
+	substr = 0;
+	if (ft_strlen(s) >= start)
+	{
+		if (len >= ft_strlen(&s[start]))
+			n = ft_strlen(&s[start]);
+		if (len < ft_strlen(&s[start]))
+			n = len;
+		substr = malloc(n + 1 * sizeof(char));
+	}
+	else if (ft_strlen(s) < start || len == 0)
+	{	
+		substr = malloc (1 * sizeof(char));
+		substr[0] = '\0';
+	}
 	if (!substr)
 		return (NULL);
-	if (ft_strlen(s) >= start)
-		ft_strlcpy(substr, &s[start], len + 1);
+	if (ft_strlen(s) > start)
+		ft_strlcpy(substr, &s[start], n + 1);
 	else
 		substr[0] = '\0';
 	return (substr);
 }
 
-
 /*int	main(void)
 {
-	const char d[] = "Esto es una prueba";
+	//const char d[] = "tripouille";
 	char *str;
-	str = ft_substr(d, 5, 6);
+	str = ft_substr("hola", 0, 18446744073709551615);
 	printf("%s\n", str);
 	free(str);
 	return (0);
 }*/
-

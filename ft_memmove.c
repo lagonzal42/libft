@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:53:52 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/07 20:09:08 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/15 20:12:21 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*dest;
+	char		*dest;
 	const char	*sorc;
-	size_t			m;
+	int			m;
 
 	if (!dst && !src)
 		return (NULL);
@@ -26,24 +26,18 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	sorc = src;
 	if (dst < src)
 	{	
-		m = 0;
-		while (len )
-		{
+		m = -1;
+		while (len-- && ++m >= 0)
 			dest[m] = sorc[m];
-			len--;
-			m++;
-		}
 	}
 	else
 	{
-		m = len - 1;
-		while (len )
+		len--;
+		while (len + 1)
 		{
-			dest[m] = sorc[m];
+			dest[len] = sorc[len];
 			len--;
-			m--;
 		}
-		//dest[m] = sorc[m];
 	}
 	return (dst);
 }
