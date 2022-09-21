@@ -36,14 +36,15 @@ SRCS = ft_atoi.c\
 	   ft_tolower.c \
 	   ft_toupper.c
 
-SRCS_BONUS = ft_lstadd_back.o\
-		   ft_lstadd_front.o\
-		   ft_lstclear.o\
-		   ft_lstdelone.o\
-		   ft_lstiter.o\
-		   ft_lstlast.o\
-		   ft_lstnew.o\
-		   ft_lstsize.o
+SRCS_BONUS = ft_lstadd_back.c\
+		   ft_lstadd_front.c\
+		   ft_lstclear.c\
+		   ft_lstdelone.c\
+		   ft_lstiter.c\
+		   ft_lstlast.c\
+		   ft_lstnew.c\
+		   ft_lstmap.c\
+		   ft_lstsize.c
 
 OBJS = ft_atoi.o \
 	   ft_bzero.o \
@@ -87,6 +88,7 @@ OBJS_BONUS = ft_lstadd_back.o\
 		   ft_lstiter.o\
 		   ft_lstlast.o\
 		   ft_lstnew.o\
+		   ft_lstmap.o\
 		   ft_lstsize.o
 
 CC = gcc

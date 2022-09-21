@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 15:55:04 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/21 17:01:14 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:54:49 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_list	*ft_lstnew(void	*content)
 	t_list	*new;
 
 	new = malloc(sizeof(t_list));
-	if(!new)
-		return(NULL);
+	if (!new)
+		return (NULL);
 	new->content = content;
 	new->next = NULL;
-	return(new);	
+	return (new);
 }
