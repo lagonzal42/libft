@@ -5,11 +5,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*new;
 
-	while (lst)
+	while (*lst)
 	{
-		new = (*lst).next;
-		ft_lstdelone(*lst, del);
-		*lst = new;
+		new = (*lst)->next;
+		(del)((*lst)->content);
+		free(*lst);
+		(*lst) = new;
 	}
 	lst = NULL;
 }

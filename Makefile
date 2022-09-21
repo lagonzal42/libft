@@ -1,5 +1,50 @@
 #Makefile proyect libft
 NAME = libft.a
+
+SRCS = ft_atoi.c\
+	   ft_bzero.c \
+	   ft_calloc.c \
+	   ft_isalnum.c \
+	   ft_isalpha.c \
+	   ft_isascii.c \
+	   ft_isdigit.c \
+	   ft_isprint.c \
+	   ft_itoa.c \
+	   ft_memchr.c \
+	   ft_memcmp.c \
+	   ft_memcpy.c \
+	   ft_memmove.c \
+	   ft_memset.c \
+	   ft_putchar_fd.c \
+	   ft_putendl_fd.c \
+	   ft_putnbr_fd.c \
+	   ft_putstr_fd.c \
+	   ft_split.c \
+	   ft_strchr.c \
+	   ft_strdup.c \
+	   ft_striteri.c \
+	   ft_strjoin.c \
+	   ft_strlcat.c \
+	   ft_strlcpy.c \
+	   ft_strlen.c\
+	   ft_strmapi.c \
+	   ft_strncmp.c \
+	   ft_strnstr.c \
+	   ft_strrchr.c \
+	   ft_strtrim.c \
+	   ft_substr.c \
+	   ft_tolower.c \
+	   ft_toupper.c
+
+SRCS_BONUS = ft_lstadd_back.o\
+		   ft_lstadd_front.o\
+		   ft_lstclear.o\
+		   ft_lstdelone.o\
+		   ft_lstiter.o\
+		   ft_lstlast.o\
+		   ft_lstnew.o\
+		   ft_lstsize.o
+
 OBJS = ft_atoi.o \
 	   ft_bzero.o \
 	   ft_calloc.o \
@@ -33,16 +78,42 @@ OBJS = ft_atoi.o \
 	   ft_strtrim.o \
 	   ft_substr.o \
 	   ft_tolower.o \
-	   ft_toupper.o 
+	   ft_toupper.o
+
+OBJS_BONUS = ft_lstadd_back.o\
+		   ft_lstadd_front.o\
+		   ft_lstclear.o\
+		   ft_lstdelone.o\
+		   ft_lstiter.o\
+		   ft_lstlast.o\
+		   ft_lstnew.o\
+		   ft_lstsize.o
+
+CC = gcc
+
+RM = rm -f
+
+AR = ar rcs
 
 CFLAGS = -Wall -Wextra -Werror
-all: $(NAME)
-$(NAME):$(OBJS)
-	ar rsc $(NAME) $(OBJS) 
-clean:
-	@rm -f *.o
+
 %.o: %.c
-	@gcc $(CFLAGS) -c $< 
+	$(CC) $(CFLAGS) -c $< 
+
+all: $(NAME)
+
+$(NAME):$(OBJS)
+	$(AR) $(NAME) $(OBJS) 
+
+bonus: $(OBJS_BONUS)  $(OBJS) 
+	$(AR) $(NAME) $(OBJS_BONUS) $(OBJS)  
+
+clean:
+	$(RM) $(OBJS) $(OBJS_BONUS) 
+
 fclean: clean
-	@rm -f $(NAME)
+	$(RM) $(NAME)
+
 re: fclean all
+
+.PHONY: all clean bonus fclean re
