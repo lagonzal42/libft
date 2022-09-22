@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:20:50 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/15 16:38:35 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:53:00 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 			n = len;
 		substr = malloc(n + 1 * sizeof(char));
 	}
-	else if (ft_strlen(s) < start || len == 0)
+	else if (ft_strlen(s) < start || len <= 1)
 	{	
-		substr = malloc (1 * sizeof(char));
-		substr[0] = '\0';
+		return (ft_strdup(""));
 	}
 	if (!substr)
 		return (NULL);

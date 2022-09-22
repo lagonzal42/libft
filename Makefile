@@ -107,8 +107,8 @@ all: $(NAME)
 $(NAME):$(OBJS)
 	$(AR) $(NAME) $(OBJS) 
 
-bonus: $(OBJS_BONUS)  $(OBJS) 
-	$(AR) $(NAME) $(OBJS_BONUS) $(OBJS)  
+bonus: $(OBJS_BONUS) $(OBJS)
+	$(AR) $(NAME) $(OBJS_BONUS) $(OBJS)
 
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS) 

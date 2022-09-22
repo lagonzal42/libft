@@ -6,7 +6,7 @@
 /*   By: lagonzal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:50:36 by lagonzal          #+#    #+#             */
-/*   Updated: 2022/09/21 21:18:19 by lagonzal         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:05:38 by lagonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 
 	lst2 = NULL;
-	while(lst)
+	while (lst)
 	{
 		new = ft_lstnew((*f)(lst->content));
-		if(!new)
+		if (!new)
 		{
-			ft_lstclear(&lst2, del);	
+			ft_lstclear(&lst2, del);
 			lst = NULL;
 			return (NULL);
 		}
 		ft_lstadd_back(&lst2, new);
 		lst = lst->next;
 	}
-	return (lst2);	
+	return (lst2);
 }
